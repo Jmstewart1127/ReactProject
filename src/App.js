@@ -5,6 +5,8 @@ import FunInput from './components/FunInput';
 import FunLogin from './components/FunLogin';
 import EmployeeTable from './components/EmployeeTable';
 import './App.css';
+import './App.scss';
+import './'
 
 class App extends Component {
   render() {

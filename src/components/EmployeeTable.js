@@ -6,7 +6,8 @@ import {
   TableRow,
   TableColumn,
   TablePagination,
-} from 'react-md';
+} from 'react-md/lib/DataTables';
+import Button from 'react-md/lib/Buttons';
 
 const headers = ['Id', 'Name', 'Rate', 'Period Pay', 'Clocked In'].map((_, i) => `${i + 1}`);
 
@@ -43,6 +44,8 @@ export default class EmployeeTable extends Component {
 
   render() {
     return(
+      <div>
+      <Button/>
       <DataTable>
         <TableHeader>
           <TableRow selectable={false}>
@@ -61,6 +64,7 @@ export default class EmployeeTable extends Component {
           ))}
         </TableBody>
       </DataTable>
+      </div>
     );
   }
 }
