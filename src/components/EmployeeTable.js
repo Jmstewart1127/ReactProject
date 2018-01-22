@@ -6,10 +6,12 @@ import {
   TableRow,
   TableColumn,
   TablePagination,
-} from 'react-md/lib/DataTables';
-import Button from 'react-md/lib/Buttons';
+  Button,
+  Grid,
+  Cell,
+} from 'react-md';
 
-const headers = ['Id', 'Name', 'Rate', 'Period Pay', 'Clocked In'].map((_, i) => `${i + 1}`);
+const headers = ['Id', 'Name', 'Rate', 'Period Pay', 'Clocked In'];
 
 export default class EmployeeTable extends Component {
   constructor(props) {
@@ -44,26 +46,30 @@ export default class EmployeeTable extends Component {
 
   render() {
     return(
-      <div>
-      <Button/>
-      <DataTable>
-        <TableHeader>
-          <TableRow selectable={false}>
-            {headers.map(header => <TableColumn key={header}>{header}</TableColumn>)}
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {this.state.employeeData.map((employee) => (
-            <TableRow key={employee} selectable={false}>
-              <TableColumn>{employee.id}</TableColumn>
-              <TableColumn>{employee.user}</TableColumn>
-              <TableColumn>{employee.payRate}</TableColumn>
-              <TableColumn>{employee.weeklyPay}</TableColumn>
-              <TableColumn>{employee.clocked.toString()}</TableColumn>
-            </TableRow>
-          ))}
-        </TableBody>
-      </DataTable>
+      <div className="employee-table">
+      <Grid>
+        <Cell className="table-cell" size={10}>
+          <DataTable>
+            <TableHeader>
+              <TableRow selectable={false}>
+                {headers.map(header => <TableColumn key={header}>{header}</TableColumn>)}
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {this.state.employeeData.map((employee) => (
+                <TableRow key={employee} selectable={false}>
+                  <TableColumn>{employee.id}</TableColumn>
+                  <TableColumn>{employee.user}</TableColumn>
+                  <TableColumn>{employee.payRate}</TableColumn>
+                  <TableColumn>{employee.weeklyPay}</TableColumn>
+                  <TableColumn>{employee.clocked.toString()}</TableColumn>
+                  <Button raised primary iconClassName="fa fa-hand-spock-o">Spock</Button>
+                </TableRow>
+              ))}
+            </TableBody>
+          </DataTable>
+        </Cell>
+      </Grid>
       </div>
     );
   }
