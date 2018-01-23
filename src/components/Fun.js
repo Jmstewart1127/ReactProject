@@ -47,10 +47,6 @@ export default class Fun extends Component {
     this.setState({arrayOfNumbers: arr});
   };
 
-  getArrayOfNumbers = () => {
-    return this.state.arrayOfNumbers;
-  };
-
   componentDidMount() {
     this.setArrayOfObjects();
     this.setArrayOfNumbers();

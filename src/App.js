@@ -4,6 +4,7 @@ import Fun from './components/Fun';
 import FunInput from './components/FunInput';
 import FunLogin from './components/FunLogin';
 import EmployeeTable from './components/EmployeeTable';
+import Nav from './components/Nav';
 import './App.css';
 import './'
 
@@ -18,6 +19,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+        <Nav/>
         <FunLogin/>
         <Fun/>
         <FunInput/>
