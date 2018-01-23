@@ -1,10 +1,15 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
+import {
+  Avatar,
+  Divider,
+  FontIcon,
+  List,
+  ListItem,
+  Subheader,
+} from 'react-md/lib/Lists';
 import { Link } from 'react-router-dom';
 
-// import inboxListItems from 'constants/inboxListItems';
-// import loremIpsum from 'lorem-ipsum';
-
-export default class Nav extends PureComponent {
+export default class Nav extends Component {
   constructor() {
     super();
 
@@ -16,8 +21,8 @@ export default class Nav extends PureComponent {
 
   render() {
     return (
-      <div>
-        <Link/>
+      <div className="md-grid">
+
       </div>
     );
   }

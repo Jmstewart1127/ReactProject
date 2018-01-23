@@ -23,15 +23,16 @@ export default class EmployeeTable extends Component {
     }
   }
 
-  setEmployeeData = () => {
-    const employeeData = [];
-    fetch('https://spring-clock.herokuapp.com/rest/get/all/employees/2')
+  setBusinessData = () => {
+    let id = localStorage.getItem('id');
+    const data = [];
+    fetch('https://spring-clock.herokuapp.com/rest/user/' + id + '/businesses')
       .then((response) => response.json())
       .then((responseJson) => {
         for (let i = 0; i < responseJson.length; i++) {
-          employeeData.push(responseJson[i]);
+          data.push(responseJson[i]);
           this.setState({
-            businessData: employeeData
+            businessData: data,
           })
         }
       })
@@ -51,7 +52,7 @@ export default class EmployeeTable extends Component {
   };
 
   componentDidMount() {
-    this.setEmployeeData();
+    this.setBusinessData();
   }
 
   render() {
@@ -66,17 +67,14 @@ export default class EmployeeTable extends Component {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                { this.state.businessData.map((employee) => {
+                { this.state.businessData.map((business) => {
                   const handleClockInOut = () => {
-                    this.clockEmployeeInOrOut(employee.id);
+                    this.clockEmployeeInOrOut(business.id);
                   };
                   return(
-                    <TableRow key={employee} selectable={false}>
-                      <TableColumn>{employee.id}</TableColumn>
-                      <TableColumn>{employee.user}</TableColumn>
-                      <TableColumn>{employee.payRate}</TableColumn>
-                      <TableColumn>{employee.weeklyPay}</TableColumn>
-                      <TableColumn>{employee.clocked.toString()}</TableColumn>
+                    <TableRow key={business} selectable={false}>
+                      <TableColumn>{business.id}</TableColumn>
+                      <TableColumn>{business.bizName}</TableColumn>
                       <Button
                         raised primary
                         onClick={handleClockInOut}

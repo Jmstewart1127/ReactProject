@@ -4,6 +4,7 @@ import Fun from './components/Fun';
 import FunInput from './components/FunInput';
 import FunLogin from './components/FunLogin';
 import EmployeeTable from './components/EmployeeTable';
+import BusinessTable from './components/BusinessTable';
 import Nav from './components/Nav';
 import './App.css';
 import './'
@@ -24,6 +25,7 @@ class App extends Component {
         <Fun/>
         <FunInput/>
         <EmployeeTable/>
+        <BusinessTable/>
       </div>
     );
   }
